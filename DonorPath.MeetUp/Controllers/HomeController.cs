@@ -19,6 +19,8 @@ namespace DonorPath.MeetUp.Controllers
         {
 
             ViewBag.Name = Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("name");
+            if (String.IsNullOrEmpty(ViewBag.Name))
+                ViewBag.Name = "I";
             return View(new ScheduleModel());
         }
 

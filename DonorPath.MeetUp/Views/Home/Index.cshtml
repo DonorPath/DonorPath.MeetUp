@@ -19,7 +19,7 @@
 
 <div class="jumbotron">
     <img src="~/Content/logo.png" alt="DonorPath" />
-    <p class="lead">@(ViewBag.Name ?? "I") would like to meet with you.  Please select a time from the list below, and we'll set up the rest.</p>
+    <p class="lead">@ViewBag.Name would like to meet with you.  Please select a time from the list below, and we'll set up the rest.</p>
     @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "ScheduledFailure", OnSuccess = "ScheduledSuccess", OnBegin = "BeginSubmitAppointment", OnComplete = "CompleteSubmitAppointment" }))
     {
         <div class="form-group">
