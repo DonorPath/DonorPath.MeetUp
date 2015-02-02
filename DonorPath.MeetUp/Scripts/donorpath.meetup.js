@@ -8,7 +8,7 @@ function FetchDemoTimes() {
     var appointmentUri = rootUri + 'home/appointments';
     $.getJSON( appointmentUri)
       .done(function (data) {
-          demoTimes = $.map(data, function (e) { return moment(e, 'M/DD/YYYY h:mm A'); });
+          demoTimes = $.map(data, function (e) { return moment(e); });
           BindDemoTimes();
           EnableForm();
       });

@@ -46,12 +46,12 @@ namespace DonorPath.MeetUp.Controllers
                 (start >= x.StartTime.ToLocalTime() && end <= x.EndTime.ToLocalTime()) ||   //contained by existing appointment
                 (start < x.StartTime.ToLocalTime() && end > x.EndTime.ToLocalTime())))     //contains an existing appointment
                         {
-                            availableAppointments.Add(new Appointment { StartTime = start, EndTime = end });
+                            availableAppointments.Add(new Appointment { StartTime = start.ToUniversalTime(), EndTime = end.ToUniversalTime() });
                         }
                     }
                 }
             }
-            return Json(availableAppointments.Select(x => x.StartTime.ToString("M/dd/yyyy h:mm t")).ToArray(), JsonRequestBehavior.AllowGet);
+            return Json(availableAppointments.Select(x => x.StartTime.ToString("s")).ToArray(), JsonRequestBehavior.AllowGet);
         }
 
         private static TimeSpan DemoDuration
