@@ -37,7 +37,7 @@ namespace DonorPath.MeetUp.Controllers
             {
                 if(d.DayOfWeek != DayOfWeek.Saturday && d.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    for(DateTime start = d.AddHours(9); start < d.AddHours(17); start = start.AddMinutes(15))
+                    for(DateTime start = d.AddHours(Settings.DayStart); start < d.AddHours(Settings.DayEnd); start = start.AddMinutes(15))
                     {
                         DateTime end = start.Add(DemoDuration);
                         if(start > DateTime.Now && !scheduledAppointments.Any(x =>

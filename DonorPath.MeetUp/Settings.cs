@@ -149,5 +149,24 @@ namespace DonorPath.MeetUp
                 return CloudConfigurationManager.GetSetting("calendarUri");
             }
         }
+
+        public static double DayStart 
+        {
+            get
+            {
+                double start = 14d;
+                double.TryParse(CloudConfigurationManager.GetSetting("dayStart"), out start);
+                return start;
+            }
+        }
+
+        public static double DayEnd {
+            get
+            {
+                double end = 23d;
+                double.TryParse(CloudConfigurationManager.GetSetting("dayEnd"), out end);
+                return end;
+            }
+        }
     }
 }
