@@ -8,7 +8,7 @@ function FetchDemoTimes() {
     var appointmentUri = rootUri + 'home/appointments';
     $.getJSON( appointmentUri)
       .done(function (data) {
-          demoTimes = $.map(data, function (e) { return moment(e); });
+          demoTimes = $.map(data, function (e) { return moment(e, 'M/DD/YYYY h:mm A'); });
           BindDemoTimes();
           EnableForm();
       });
@@ -24,7 +24,8 @@ function EnableForm()
 
 function DisableForm()
 {
-
+    $('#submitSuccess').hide();
+    $('#submitFailure').hide();
     BindDemoTimes();
     $('#MeetupLoad').show();
     $('#appointmentSubmit').attr('disabled', true);
@@ -58,15 +59,17 @@ function BindDemoTimes() {
             format: 'MM/DD/YYYY h:mm a',
             formatDate: 'MM/DD/YYYY',
             onChangeDateTime: function (c) {
-                var formattedCurrentDate = moment(c).format("l"),
-                    times = $.map(demoTimes, function (e, i) {
-                        if (e.format('l') === formattedCurrentDate) return e.format('H:mm a');
-                    });
-                if (times.length > 0) {
-                    this.setOptions({
-                        timepicker: true,
-                        allowTimes: times
-                    });
+                if (c) {
+                    var formattedCurrentDate = moment(c.toISOString()).format("l"),
+                        times = $.map(demoTimes, function (e, i) {
+                            if (e.format('l') === formattedCurrentDate) return e.format('H:mm a');
+                        });
+                    if (times.length > 0) {
+                        this.setOptions({
+                            timepicker: true,
+                            allowTimes: times
+                        });
+                    }
                 }
             }
         });
@@ -84,23 +87,24 @@ function initGenericDateTimePicker() {
     }
 }
 
-function ScheduledFailure()
+function OnFailure(jqXHR, textStatus, errorThrown)
 {
-    alert('BUG!');
+    $('#submitFailure').text(errorThrown);
+    $('#submitFailure').show();
     return false;
 }
 
-function ScheduledSuccess(context) {
-    alert('All good!');
+function OnSuccess(data, textStatus, jqXHR) {
+    $('#submitSuccess').show();
     return false;
 }
 
-function BeginSubmitAppointment()
+function OnBegin(jqXHR, settings)
 {
     DisableForm();
 }
     
-function CompleteSubmitAppointment()
+function OnComplete(jqXHR, textStatus)
 {
     EnableForm()
 }

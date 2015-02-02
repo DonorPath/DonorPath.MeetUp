@@ -20,7 +20,8 @@
 <div class="jumbotron">
     <img src="~/Content/logo.png" alt="DonorPath" />
     <p class="lead">@ViewBag.Name would like to meet with you.  Please select a time from the list below, and we'll set up the rest.</p>
-    @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "ScheduledFailure", OnSuccess = "ScheduledSuccess", OnBegin = "BeginSubmitAppointment", OnComplete = "CompleteSubmitAppointment" }))
+    <p>All appointment times are in @(TimeZone.CurrentTimeZone.IsDaylightSavingTime(DateTime.Now) ? TimeZone.CurrentTimeZone.DaylightName : TimeZone.CurrentTimeZone.StandardName)</p>
+    @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "OnFailure", OnSuccess = "OnSuccess", OnBegin = "OnBegin", OnComplete = "OnComplete" }))
     {
         <div class="form-group">
             @Html.LabelFor(m => m.AppointmentTime, new { @class = "control-label" })
@@ -32,7 +33,13 @@
             @Html.TextBoxFor(m => m.Email, new { disabled = "disabled", @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-block" })
         </div>
-    <input type="submit" value="Submit" id="appointmentSubmit" disabled="disabled" class="btn btn-primary btn-lg" />
+        <input type="submit" value="Submit" id="appointmentSubmit" disabled="disabled" class="btn btn-primary btn-lg" />
         <progress id="MeetupLoad"></progress>
     }
+    <div id="submitSuccess" class="alert alert-success" style="display:none">
+        <strong>Success!</strong> You should receive an email shortly confirming your appointment.
+    </div>
+    <div id="submitFailure" class="alert alert-danger" style="display:none">
+        We could not schedule your appointment at this time
+    </div>
 </div>
