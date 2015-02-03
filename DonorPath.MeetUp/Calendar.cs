@@ -25,8 +25,8 @@ namespace DonorPath.MeetUp
             var occu = c.GetOccurrences(start, end);
             return occu.Select(x => new Appointment
             {
-                StartTime = x.Period.StartTime.Value.ToUniversalTime(),
-                EndTime = x.Period.EndTime.Value.ToUniversalTime()
+                StartTime = x.Period.StartTime.UTC.ToUniversalTime(),
+                EndTime = x.Period.EndTime.UTC.ToUniversalTime()
             }).ToArray();
         }
 

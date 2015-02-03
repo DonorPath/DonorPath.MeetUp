@@ -81,14 +81,14 @@ namespace DonorPath.MeetUp.Controllers
             string mergedBody = string.Format(body, Settings.WebsiteBaseUrl, DateTime.Now.Year.ToString());
 
 
-
+            string subject = string.Format("Meeting with {1} and {0}", model.Email, Settings.Name);
             MailMessage mailMessage = new MailMessage(Settings.MailUsername, model.Email + "," + email)
             {
-                Subject = string.Empty,
+                Subject = subject,
                 Body = mergedBody,
                 IsBodyHtml = true
             };
-            string ics = Calendar.GetIcalString(string.Format("Meeting with {1} and {0}", model.Email, Settings.Name), Settings.Location, model.AppointmentTime.Value.AddMinutes(model.TimezoneOffset ?? 0), model.AppointmentTime.Value.AddMinutes(model.TimezoneOffset ?? 0).Add(DemoDuration));
+            string ics = Calendar.GetIcalString(subject, Settings.Location, model.AppointmentTime.Value.AddMinutes(-1 * model.TimezoneOffset ?? 0), model.AppointmentTime.Value.AddMinutes(-1 * model.TimezoneOffset ?? 0).Add(DemoDuration));
             using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(ics)))
             {
                 using (Attachment attachment = new Attachment(memoryStream, "meeting.ics"))
