@@ -20,7 +20,7 @@
 <div class="jumbotron">
     <img src="~/Content/logo.png" alt="DonorPath" />
     <p class="lead">@ViewBag.Name would like to meet with you.  Please select a time from the list below, and we'll set up the rest.</p>
-    <p>All appointment times are in @(TimeZone.CurrentTimeZone.IsDaylightSavingTime(DateTime.Now) ? TimeZone.CurrentTimeZone.DaylightName : TimeZone.CurrentTimeZone.StandardName)</p>
+    <p>All appointment times are in your local time zone: GMT<strong id="timezone">+0</strong></p>
     @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "OnFailure", OnSuccess = "OnSuccess", OnBegin = "OnBegin", OnComplete = "OnComplete" }))
     {
         <div class="form-group">
@@ -33,6 +33,7 @@
             @Html.TextBoxFor(m => m.Email, new { disabled = "disabled", @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-block" })
         </div>
+        @Html.HiddenFor(m => m.TimezoneOffset)
         <input type="submit" value="Submit" id="appointmentSubmit" disabled="disabled" class="btn btn-primary btn-lg" />
         <progress id="MeetupLoad"></progress>
     }

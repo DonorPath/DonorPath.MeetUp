@@ -88,7 +88,7 @@ namespace DonorPath.MeetUp.Controllers
                 Body = mergedBody,
                 IsBodyHtml = true
             };
-            string ics = Calendar.GetIcalString(string.Format("Meeting with {1} and {0}", model.Email, Settings.Name), Settings.Location, model.AppointmentTime.Value, model.AppointmentTime.Value.Add(DemoDuration));
+            string ics = Calendar.GetIcalString(string.Format("Meeting with {1} and {0}", model.Email, Settings.Name), Settings.Location, model.AppointmentTime.Value.AddMinutes(model.TimezoneOffset ?? 0), model.AppointmentTime.Value.AddMinutes(model.TimezoneOffset ?? 0).Add(DemoDuration));
             using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(ics)))
             {
                 using (Attachment attachment = new Attachment(memoryStream, "meeting.ics"))

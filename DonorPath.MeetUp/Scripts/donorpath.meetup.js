@@ -1,6 +1,19 @@
 ﻿var demoTimes;
 
 function FetchDemoTimes() {
+
+    var localNow = moment();
+    var utcNow = moment.utc();
+
+    var localHour = localNow.hours();
+    var utcHour = utcNow.hours();
+
+    if (localHour < utcHour)
+        $('#timezone').text(localHour - utcHour);
+    else
+        $('#timezone').text("+" + (localHour - utcHour));
+
+    $('#TimezoneOffset').val(moment().utcOffset());
     var rootUri = location.toString();
     if (location.pathname != '/')
         rootUri = rootUri.replace(location.pathname, '/');
@@ -8,7 +21,7 @@ function FetchDemoTimes() {
     var appointmentUri = rootUri + 'home/appointments';
     $.getJSON( appointmentUri)
       .done(function (data) {
-          demoTimes = $.map(data, function (e) { return moment(e); });
+          demoTimes = $.map(data, function (e) { return moment.utc(e); });
           BindDemoTimes();
           EnableForm();
       });
@@ -47,7 +60,7 @@ function BindDemoTimes() {
                 $('.xdsoft_date').each(function () {
                     var calDate = (parseInt($(this).attr('data-month')) + 1) + '/' + $(this).attr('data-date') + '/' + $(this).attr('data-year');
                     var result = $.grep(demoTimes, function (e) {
-                        return e.format('l') === calDate;
+                        return e.local().format('l') === calDate;
                     });
                     if (result.length === 0) {
                         $(this).addClass('xdsoft_disabled');
@@ -62,7 +75,7 @@ function BindDemoTimes() {
                 if (c) {
                     var formattedCurrentDate = moment(c.toISOString()).format("l"),
                         times = $.map(demoTimes, function (e, i) {
-                            if (e.format('l') === formattedCurrentDate) return e.format('H:mm a');
+                            if (e.local().format('l') === formattedCurrentDate) return e.local().format('H:mm a');
                         });
                     if (times.length > 0) {
                         this.setOptions({

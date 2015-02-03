@@ -19,7 +19,8 @@ namespace DonorPath.MeetUp
                         "~/Scripts/donorpath.meetup.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/moment").Include(
-                        "~/Scripts/moment.js"));
+                        "~/Scripts/moment.js",
+                        "~/Scripts/moment-timezone-with-data.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquerydatetimepicker").Include(
                         "~/Scripts/jquery.datetimepicker.js"));
