@@ -147,6 +147,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\joe-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\nate-donorpath.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\donorpath.meetup.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
