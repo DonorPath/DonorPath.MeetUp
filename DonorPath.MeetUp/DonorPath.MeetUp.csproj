@@ -132,6 +132,7 @@
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EmailTemplates\brian.html" />
     <Content Include="Content\EmailTemplates\caitlin.html" />
     <Content Include="Content\EmailTemplates\joe.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -146,6 +147,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\brian-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\caitlin-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\joe-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\nate-donorpath.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
