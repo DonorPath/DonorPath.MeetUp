@@ -18,7 +18,7 @@ function FetchDemoTimes() {
     if (location.pathname != '/')
         rootUri = rootUri.replace(location.pathname, '/');
 
-    var appointmentUri = rootUri + 'home/appointments';
+    var appointmentUri = rootUri.split('?')[0] + 'home/appointments';
     $.getJSON( appointmentUri)
       .done(function (data) {
           demoTimes = $.map(data, function (e) { return moment.utc(e); });
