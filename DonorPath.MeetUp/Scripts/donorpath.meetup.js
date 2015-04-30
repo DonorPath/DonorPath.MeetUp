@@ -33,6 +33,8 @@ function EnableForm()
     $('#appointmentSubmit').attr('disabled', false);
     $('#AppointmentTime').attr('disabled', false);
     $('#Email').attr('disabled', false);
+    $('#Name').attr('disabled', false);
+    $('#OrganizationName').attr('disabled', false);
 }
 
 function DisableForm()
@@ -44,6 +46,8 @@ function DisableForm()
     $('#appointmentSubmit').attr('disabled', true);
     $('#AppointmentTime').attr('disabled', true);
     $('#Email').attr('disabled', true);
+    $('#Name').attr('disabled', true);
+    $('#OrganizationName').attr('disabled', true);
 }
 
 
