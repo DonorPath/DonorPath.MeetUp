@@ -22,6 +22,9 @@ namespace DonorPath.MeetUp.Models
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Required")]
         public string Name { get; set; }
+        [Display(Name = "Phone")]
+        [Required(ErrorMessage = "Required")]
+        public string Phone { get; set; }
 
         public int? TimezoneOffset { get; set; }
     }

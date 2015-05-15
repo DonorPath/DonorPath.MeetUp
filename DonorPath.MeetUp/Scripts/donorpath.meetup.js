@@ -35,6 +35,7 @@ function EnableForm()
     $('#Email').attr('disabled', false);
     $('#Name').attr('disabled', false);
     $('#OrganizationName').attr('disabled', false);
+    $('#Phone').attr('disabled', false);
 }
 
 function DisableForm()
@@ -48,6 +49,7 @@ function DisableForm()
     $('#Email').attr('disabled', true);
     $('#Name').attr('disabled', true);
     $('#OrganizationName').attr('disabled', true);
+    $('#Phone').attr('disabled', true);
 }
 
 

@@ -80,7 +80,7 @@ namespace DonorPath.MeetUp.Controllers
 
             string mergedBody = string.Format(body, Settings.WebsiteBaseUrl, DateTime.Now.Year.ToString(), model.AppointmentTime.Value.ToShortDateString(), model.AppointmentTime.Value.ToShortTimeString());
 
-            string subject = string.Format("Meeting with {1} and {0} from {2}", model.Name, Settings.Name, model.OrganizationName);
+            string subject = string.Format("Meeting with {1} and {0} from {2} - {3}", model.Name, Settings.Name, model.OrganizationName, model.Phone);
             MailMessage mailMessage = new MailMessage(Settings.MailUsername, model.Email + "," + email)
             {
                 Subject = subject,

@@ -39,6 +39,11 @@
             @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-block" })
         </div>
         <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Phone, new { disabled = "disabled", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "help-block" })
+        </div>
+        <div class="form-group">
             @Html.LabelFor(m => m.AppointmentTime, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.AppointmentTime, new { disabled = "disabled", @class = "form-control" })
             @Html.ValidationMessageFor(m => m.AppointmentTime, null, new { @class = "help-block" })
