@@ -36,6 +36,9 @@ function EnableForm()
     $('#Name').attr('disabled', false);
     $('#OrganizationName').attr('disabled', false);
     $('#Phone').attr('disabled', false);
+    $('#AppointmentTime').off('keypress').on('keypress', function () {
+        return false;
+    });
 }
 
 function DisableForm()
