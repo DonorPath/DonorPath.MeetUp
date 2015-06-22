@@ -132,6 +132,10 @@
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EmailTemplates\caroline.html" />
+    <Content Include="Content\EmailTemplates\illinois.html" />
+    <Content Include="Content\EmailTemplates\phonebooth.html" />
+    <Content Include="Content\EmailTemplates\leah.html" />
     <Content Include="Content\EmailTemplates\andy.html" />
     <Content Include="Content\EmailTemplates\brian.html" />
     <Content Include="Content\EmailTemplates\caitlin.html" />
@@ -153,10 +157,14 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\brian-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\caitlin-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\caroline-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\demo-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\illinois-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\leah-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\meetup-andy.pubxml" />
     <None Include="Properties\PublishProfiles\meetup-travis.pubxml" />
     <None Include="Properties\PublishProfiles\nate-donorpath.pubxml" />
+    <None Include="Properties\PublishProfiles\phonebooth-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\reid-donorpath.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\donorpath.meetup.js" />
