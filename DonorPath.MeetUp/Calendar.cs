@@ -52,8 +52,7 @@ namespace DonorPath.MeetUp
             evnt.Location = location;
             evnt.Alarms.Add(new Alarm
             {
-                Duration = TimeSpan.FromMinutes(-15),
-                Trigger = new Trigger(TimeSpan.FromMinutes(-15)),
+                Trigger = new Trigger("-P1D"),
                 Action = AlarmAction.Display,
                 Description = "Reminder"
             });
