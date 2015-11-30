@@ -35,21 +35,21 @@ namespace DonorPath.MeetUp.Controllers
 
             for (DateTime d = DateTime.Today; d < DateTime.Today.AddDays(30); d = d.AddDays(1))
             {
-                if(d.DayOfWeek != DayOfWeek.Saturday && d.DayOfWeek != DayOfWeek.Sunday)
-                {
+                //if(d.DayOfWeek != DayOfWeek.Saturday && d.DayOfWeek != DayOfWeek.Sunday)
+                //{
                     for(DateTime start = d.AddHours(Settings.DayStart); start < d.AddHours(Settings.DayEnd); start = start.AddMinutes(15))
                     {
                         DateTime end = start.Add(DemoDuration);
                         if(start > DateTime.Now && !scheduledAppointments.Any(x =>
-                (start < x.StartTime.ToLocalTime() && end > x.StartTime.ToLocalTime()) ||    //overlaps front of existing appointment
-                (start < x.EndTime.ToLocalTime() && end > x.EndTime.ToLocalTime()) ||    //overlaps back of existing appointment
-                (start >= x.StartTime.ToLocalTime() && end <= x.EndTime.ToLocalTime()) ||   //contained by existing appointment
-                (start < x.StartTime.ToLocalTime() && end > x.EndTime.ToLocalTime())))     //contains an existing appointment
+                            (start < x.StartTime.ToLocalTime() && end > x.StartTime.ToLocalTime()) ||    //overlaps front of existing appointment
+                            (start < x.EndTime.ToLocalTime() && end > x.EndTime.ToLocalTime()) ||    //overlaps back of existing appointment
+                            (start >= x.StartTime.ToLocalTime() && end <= x.EndTime.ToLocalTime()) ||   //contained by existing appointment
+                            (start < x.StartTime.ToLocalTime() && end > x.EndTime.ToLocalTime())))     //contains an existing appointment
                         {
                             availableAppointments.Add(new Appointment { StartTime = start.ToUniversalTime(), EndTime = end.ToUniversalTime() });
                         }
                     }
-                }
+                //}
             }
             return Json(availableAppointments.Select(x => x.StartTime.ToString("s")).ToArray(), JsonRequestBehavior.AllowGet);
         }

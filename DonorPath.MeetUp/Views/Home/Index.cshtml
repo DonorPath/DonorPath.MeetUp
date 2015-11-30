@@ -20,8 +20,9 @@
 <div class="jumbotron">
     <img src="~/Content/logo.png" alt="DonorPath" style="max-width:100%;" />
     <p class="lead">
-        Hello, @ViewBag.Name is looking forward to meeting you. I'm searching the calendar for available times, and will show them to you momentarily. Then, you can select a time, and I'll send you both an invite.
+        Thanks for visiting DonorPath's Year-End Fundraising Help Desk --- I'm searching the calendar for available times, and will show them to you momentarily. 
     </p>
+    <p>Pick a time to get immediate help creating your year-end priorities, plans and materials, and you'll receive an invite by email.</p>
     <p>All appointment times are in your local time zone: GMT<strong id="timezone">+0</strong></p>
     @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "OnFailure", OnSuccess = "OnSuccess", OnBegin = "OnBegin", OnComplete = "OnComplete" }))
     {
