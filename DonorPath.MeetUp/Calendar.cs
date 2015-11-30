@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DonorPath.MeetUp.Models;
 
 namespace DonorPath.MeetUp
 {
@@ -52,10 +53,9 @@ namespace DonorPath.MeetUp
             evnt.Location = location;
             evnt.Alarms.Add(new Alarm
             {
-                Duration = TimeSpan.FromMinutes(-15),
-                Trigger = new Trigger(TimeSpan.FromMinutes(-15)),
+                Trigger = new Trigger("-P1D"),
                 Action = AlarmAction.Display,
-                Description = "Reminder"
+                Description = "Event Reminder"
             });
             return serializer.SerializeToString(iCal);
         }
