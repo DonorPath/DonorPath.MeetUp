@@ -162,6 +162,7 @@
     <None Include="Properties\PublishProfiles\leah-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\meetup-andy.pubxml" />
     <None Include="Properties\PublishProfiles\meetup-barbara.pubxml" />
+    <None Include="Properties\PublishProfiles\meetup-nate.pubxml" />
     <None Include="Properties\PublishProfiles\meetup-travis.pubxml" />
     <None Include="Properties\PublishProfiles\nate-donorpath.pubxml" />
     <None Include="Properties\PublishProfiles\phonebooth-donorpath.pubxml" />
