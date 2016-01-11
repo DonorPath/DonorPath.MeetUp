@@ -20,10 +20,10 @@
 <div class="jumbotron">
     <img src="~/Content/logo.png" alt="DonorPath" style="max-width:100%;" />
     <p class="lead">
-        Thank you for your interest in the Year-end Fundraising Help Desk.
+        Thanks for stopping by the DonorPath fundraising help-desk.
     </p>
-    <p>Our Fundraisers in Residence are on-call through the end of December to help you raise more before year-end. Not sure where to start? We can help you establish year-end priorities, develop a first-time donor retention plan, or create an impact-driven case for support.</p>
-    <p>Please allow time for the Help Desk calendar to load. All appointment times are in your local time zone: GMT<strong id="timezone">+0</strong></p>
+    <p>Our Fundraisers in Residence are on-call to help where you need it most: building out a 12-month plan, developing a donor retention strategy, creating an impact-driven case for support, or getting an appeal letter out-the-door.</p>
+    <p>Please wait while we search the calendar for available times, all appointments are in your local time zone: GMT<strong id="timezone">+0</strong></p>
     @using (Ajax.BeginForm("ScheduleAppointment", "Home", new AjaxOptions { HttpMethod = "Post", LoadingElementId = "MeetupLoad", OnFailure = "OnFailure", OnSuccess = "OnSuccess", OnBegin = "OnBegin", OnComplete = "OnComplete" }))
     {
         <div class="form-group">
